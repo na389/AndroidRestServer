@@ -40,8 +40,9 @@ public class RDSEntityFriendsListService {
 			System.out.println("mapPhoneNumbersWithRegUsers");
 			
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://mydbinstance.c1b4bf3mouew.us-east-1.rds.amazonaws.com:3306/mydb";
-			connect = (Connection) DriverManager.getConnection(url,"myuser", "mypassword");
+			//String url = "jdbc:mysql://mydbinstance.c1b4bf3mouew.us-east-1.rds.amazonaws.com:3306/mydb";
+			String url = "jdbc:mysql://192.168.1.2:3306/android_connect";
+			connect = (Connection) DriverManager.getConnection(url,"root", "na12345");
 			Statement stmnt = (Statement) connect.createStatement();
 			ResultSet rst = stmnt.executeQuery("SELECT username,phonenumber,location_lat,location_long FROM users");
 			while(rst.next()){
