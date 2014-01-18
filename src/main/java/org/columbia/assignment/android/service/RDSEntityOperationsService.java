@@ -46,9 +46,10 @@ public class RDSEntityOperationsService {
 
 			System.out.println("updateUserDetails");
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://mydbinstance.c1b4bf3mouew.us-east-1.rds.amazonaws.com:3306/mydb";
-			connect = (Connection) DriverManager.getConnection(url,
-					"myuser", "mypassword");
+			//String url = "jdbc:mysql://mydbinstance.c1b4bf3mouew.us-east-1.rds.amazonaws.com:3306/mydb";
+			//connect = (Connection) DriverManager.getConnection(url,	"myuser", "mypassword");
+			String url = "jdbc:mysql://192.168.1.2:3306/android_connect";
+			connect = (Connection) DriverManager.getConnection(url,"root", "na12345");
 			PreparedStatement preparedStatement = (PreparedStatement) connect
 					.prepareStatement("UPDATE users SET location_long = ?, location_lat = ? WHERE username = ?");			
 			
@@ -84,9 +85,11 @@ public class RDSEntityOperationsService {
 			System.out.println("insertUserDetails");
 			Class.forName("com.mysql.jdbc.Driver");
 			//String url = "jdbc:mysql://localhost:3306/android_connect";
-			String url = "jdbc:mysql://mydbinstance.c1b4bf3mouew.us-east-1.rds.amazonaws.com:3306/mydb";
-			connect = (Connection) DriverManager.getConnection(url,
-					"myuser", "mypassword");
+			//String url = "jdbc:mysql://mydbinstance.c1b4bf3mouew.us-east-1.rds.amazonaws.com:3306/mydb";
+			//connect = (Connection) DriverManager.getConnection(url,
+				//	"myuser", "mypassword");
+			String url = "jdbc:mysql://192.168.1.2:3306/android_connect";
+			connect = (Connection) DriverManager.getConnection(url,"root", "na12345");
 			if (max == 0) {
 				statement = (Statement) connect.createStatement();
 				ResultSet rst = statement
@@ -131,10 +134,11 @@ public class RDSEntityOperationsService {
 		try {
 			System.out.println("getUserDetails");
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://mydbinstance.c1b4bf3mouew.us-east-1.rds.amazonaws.com:3306/mydb";
-			connect = (Connection) DriverManager.getConnection(url,
-					"myuser", "mypassword");
-			
+			//String url = "jdbc:mysql://mydbinstance.c1b4bf3mouew.us-east-1.rds.amazonaws.com:3306/mydb";
+			//connect = (Connection) DriverManager.getConnection(url,
+				//	"myuser", "mypassword");
+			String url = "jdbc:mysql://192.168.1.2:3306/android_connect";
+			connect = (Connection) DriverManager.getConnection(url,"root", "na12345");
 			PreparedStatement stmnt = (PreparedStatement) connect.prepareStatement("Select * from users where id = ? ");
 			stmnt.setString(1, userDBObject.getUserName());
 			ResultSet rst = stmnt.executeQuery();
